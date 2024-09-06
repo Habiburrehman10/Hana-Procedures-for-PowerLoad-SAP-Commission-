@@ -1,0 +1,15 @@
+CREATE PROCEDURE "HABIB".pro_SMS_STATUS(
+    IN salestransaction BIGINT,
+    IN status NVARCHAR(10)
+)
+LANGUAGE SQLSCRIPT
+AS
+BEGIN
+
+UPDATE ZSMS
+SET GENERICATTRIBUTE32 = status
+where SALESTRANSACTIONSEQ = salestransaction;
+
+  
+
+END;

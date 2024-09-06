@@ -1,0 +1,43 @@
+For Oracle Adapter:
+
+CREATE REMOTE SOURCE "oradbvm_source" ADAPTER "OracleLogReaderAdapter" AT LOCATION AGENT
+"dpagent"
+CONFIGURATION
+'<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ConnectionProperties name="configurations">
+<PropertyGroup name="database" displayName="">
+<PropertyEntry name="pds_host_name"
+displayName=""></PropertyEntry>
+<PropertyEntry name="pds_port_number" displayName="Port Number"></PropertyEntry>
+<PropertyEntry name="pds_database_name" displayName="Database
+Name"></PropertyEntry>
+</PropertyGroup>
+</ConnectionProperties>
+' WITH CREDENTIAL TYPE 'PASSWORD' USING
+'<CredentialEntry name="credential">
+<user></user>
+<password></password>
+</CredentialEntry>'
+ 
+
+For File Adapter:
+
+CREATE REMOTE SOURCE "FileSource" ADAPTER "FileAdapter" AT LOCATION AGENT "agent_local"
+
+CONFIGURATION '<?xml version="1.0" encoding="UTF-8"?>
+
+<ConnectionProperties name="ConnectionInfo">
+
+<PropertyEntry name="rootdir"></PropertyEntry>
+
+<PropertyEntry name="fileformatdir"></PropertyEntry>
+
+</ConnectionProperties>'
+
+WITH CREDENTIAL TYPE 'PASSWORD' USING
+
+  '<CredentialEntry name="AccessTokenEntry">
+
+    <password></password>
+
+  </CredentialEntry>';
